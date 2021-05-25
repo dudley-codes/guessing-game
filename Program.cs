@@ -2,9 +2,31 @@
 
 GuessNum();
 
-
 void GuessNum()
 {
+  int guess = 8;
+  Console.Write("Select Easy, Medium, or Difficult (E/M/D): ");
+  string difficulty = Console.ReadLine().ToLower();
+
+  while (difficulty != "e" && difficulty != "m" && difficulty != "d")
+  {
+    Console.Write("Select a difficulty level (E/M/D)");
+    difficulty = Console.ReadLine().ToLower();
+  }
+
+  if (difficulty == "e")
+  {
+    guess = 8;
+  }
+  else if (difficulty == "m")
+  {
+    guess = 6;
+  }
+  else if (difficulty == "d")
+  {
+    guess = 4;
+  }
+
   Console.Write("Can you guess the secret number?: ");
   int answer;
   bool success = false;
@@ -12,11 +34,9 @@ void GuessNum()
 
   int SecretNumber = rand.Next(101);
 
-  // Console.WriteLine($@"The secret number is: {SecretNumber}");
-
-  while (success == false)
+  while (!success)
   {
-    for (int i = 4; i > 0; i--)
+    for (int i = guess; i > 0; i--)
     {
 
       success = int.TryParse(Console.ReadLine(), out answer);
@@ -44,7 +64,7 @@ void GuessNum()
           }
           else
           {
-            Console.WriteLine("Sorry, you ran out of guesses");
+            Console.WriteLine("Sorry, you ran out of guesses.");
           }
         }
       }
