@@ -7,6 +7,7 @@ void GuessNum()
     Console.Write("Can you guess the secret number?: ");
     int answer;
     bool success = false;
+    int SecretNumber = 42;
 
     while (success == false)
     {
@@ -14,7 +15,14 @@ void GuessNum()
     success = int.TryParse(Console.ReadLine(), out answer);
     if(success)
     {
-      Console.WriteLine("You guessed {0}", answer);
+      if(SecretNumber == answer)
+      {
+      Console.WriteLine("You guessed correct!");
+      }
+      else
+      {
+        Console.WriteLine("Wrong. Guess again!");
+      }
     }
     else
     {
