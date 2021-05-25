@@ -5,12 +5,12 @@ GuessNum();
 void GuessNum()
 {
   int guess = 8;
-  Console.Write("Select Easy, Medium, or Difficult (E/M/D): ");
+  Console.Write("Select Easy, Medium, Difficult, or Cheater (E/M/D/C): ");
   string difficulty = Console.ReadLine().ToLower();
 
-  while (difficulty != "e" && difficulty != "m" && difficulty != "d")
+  while (difficulty != "e" && difficulty != "m" && difficulty != "d" && difficulty != "c")
   {
-    Console.Write("Select a difficulty level (E/M/D)");
+    Console.Write("Select Easy, Medium, Difficult, or Cheater (E/M/D/C): ");
     difficulty = Console.ReadLine().ToLower();
   }
 
@@ -25,6 +25,10 @@ void GuessNum()
   else if (difficulty == "d")
   {
     guess = 4;
+  }
+  else if (difficulty == "c")
+  {
+    guess = 2147483647;
   }
 
   Console.Write("Can you guess the secret number?: ");
