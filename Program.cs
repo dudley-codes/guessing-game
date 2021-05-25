@@ -2,12 +2,17 @@
 
 GuessNum();
 
+
 void GuessNum()
 {
   Console.Write("Can you guess the secret number?: ");
   int answer;
   bool success = false;
-  int SecretNumber = 42;
+  var rand = new Random();
+
+  int SecretNumber = rand.Next(101);
+
+  // Console.WriteLine($@"The secret number is: {SecretNumber}");
 
   while (success == false)
   {
@@ -26,7 +31,8 @@ void GuessNum()
         {
           if (i > 1)
           {
-            Console.Write("Wrong! Guess again: ");
+            Console.WriteLine($@"You have {i - 1} guesses remaining.");
+            Console.Write("Guess again: ");
           }
           else
           {
