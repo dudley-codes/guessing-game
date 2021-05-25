@@ -31,6 +31,14 @@ void GuessNum()
         {
           if (i > 1)
           {
+            if (answer > SecretNumber)
+            {
+              Console.WriteLine("Too high!");
+            }
+            else
+            {
+              Console.WriteLine("Too low!");
+            }
             Console.WriteLine($@"You have {i - 1} guesses remaining.");
             Console.Write("Guess again: ");
           }
