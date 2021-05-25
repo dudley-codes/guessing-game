@@ -1,12 +1,20 @@
 ﻿using System;
 
-namespace guessing_game
+GuessNum();
+
+void GuessNum()
 {
-    class Program
+    Console.Write("Can you guess the secret number?: ");
+    int answer;
+
+    bool success = int.TryParse(Console.ReadLine(), out answer);
+    if(success)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("You guessed {0}", answer);
     }
+    else
+    {
+      Console.WriteLine("Please enter a number");
+    }
+
 }
